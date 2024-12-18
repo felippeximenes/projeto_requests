@@ -6,14 +6,14 @@ class DadosRepositorios:
     def __init__(self, owner):
         self.owner = owner
         self.api_base_url = 'https://api.github.com'
-        self.access_token='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'
+        self.access_token='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'
         self.headers = {'Authorization': 'Bearer ' + self.access_token,
                     'X-GitHub-Api-Version': '2022-11-28'}
 
     def lista_repositorios (self):
         repos_list = []
 
-        for page_num in range(1, 20):
+        for page_num in range(1, 8):
             try:
                 url = f'{self.api_base_url}/users/{self.owner}/repos?page={page_num}'
                 response = requests.get(url, headers=self.headers)
@@ -56,3 +56,21 @@ class DadosRepositorios:
         dados['language'] = linguagens
 
         return dados
+
+amazon_rep = DadosRepositorios('amzn')
+ling_mais_usadas_amzn = amazon_rep.cria_df_linguagens()
+#print(ling_mais_usadas_amzn)
+
+netflix_rep = DadosRepositorios('netflix')
+ling_mais_usadas_netflix = amazon_rep.cria_df_linguagens()
+#print(netflix_rep)
+
+spotify_rep = DadosRepositorios('spotify')
+ling_mais_usadas_spotify = spotify_rep.cria_df_linguagens()
+#print(spotify_rep)
+
+# Salvando os dados
+
+ling_mais_usadas_amzn.to_csv('dados/linguagens_amzn.csv')
+ling_mais_usadas_netflix.to_csv('dados/linguagens_netflix.csv')
+ling_mais_usadas_spotify.to_csv('dados/linguagens_spotify.csv')
