@@ -62,7 +62,7 @@ ling_mais_usadas_amzn = amazon_rep.cria_df_linguagens()
 #print(ling_mais_usadas_amzn)
 
 netflix_rep = DadosRepositorios('netflix')
-ling_mais_usadas_netflix = amazon_rep.cria_df_linguagens()
+ling_mais_usadas_netflix = netflix_rep.cria_df_linguagens()
 #print(netflix_rep)
 
 spotify_rep = DadosRepositorios('spotify')
