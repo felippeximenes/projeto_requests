@@ -6,7 +6,7 @@ class DadosRepositorios:
     def __init__(self, owner):
         self.owner = owner
         self.api_base_url = 'https://api.github.com'
-        self.access_token='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'
+        self.access_token='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'
         self.headers = {'Authorization': 'Bearer ' + self.access_token,
                     'X-GitHub-Api-Version': '2022-11-28'}
 
@@ -70,7 +70,6 @@ ling_mais_usadas_spotify = spotify_rep.cria_df_linguagens()
 #print(spotify_rep)
 
 # Salvando os dados
-
-ling_mais_usadas_amzn.to_csv('dados/linguagens_amzn.csv')
-ling_mais_usadas_netflix.to_csv('dados/linguagens_netflix.csv')
-ling_mais_usadas_spotify.to_csv('dados/linguagens_spotify.csv')
+ling_mais_usadas_amzn.to_csv('dados_ling/linguagens_amzn.csv')
+ling_mais_usadas_netflix.to_csv('dados_ling/linguagens_netflix.csv')
+ling_mais_usadas_spotify.to_csv('dados_ling/linguagens_spotify.csv')
